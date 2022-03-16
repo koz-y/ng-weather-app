@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
 
-import { WeatherService } from '../../service/weather.service';
+import { RetultsService } from '../../services/retults.service';
 import { Results } from '../../results';
 
 @Component({
@@ -10,25 +9,9 @@ import { Results } from '../../results';
   styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent implements OnInit, OnDestroy {
-  results: Results = {
-    country: '',
-    cityName: '',
-    temperature: '',
-    conditionText: '',
-    icon: '',
-  };
-  Obs!: Observable<any>;
-  Subs!: Subscription;
+  constructor(public resultsService: RetultsService) {}
 
-  constructor(private weatherService: WeatherService) {}
-
-  ngOnInit(): void {
-    this.Obs = this.weatherService.resultsSubject$;
-    this.Subs = this.Obs.subscribe((data) => {
-      console.log(data);
-      this.results.cityName = data.location.name;
-    });
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {}
 }

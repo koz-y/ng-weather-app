@@ -1,2 +1,8 @@
 <p>results works!</p>
-{{ results.cityName }}
+<div *ngIf="resultsService.loding">Now Loading ...</div>
+<div>{{ resultsService.results.cityName }}</div>
+<div>{{ resultsService.results.country }}</div>
+<div>{{ resultsService.results.temperature }}</div>
+<div>{{ resultsService.results.conditionText }}</div>
+<div>{{ resultsService.results.icon }}</div>
+<div>{{ resultsService.errMessage }}</div>
