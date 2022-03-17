@@ -4,7 +4,7 @@ import { Results } from '../results';
 @Injectable({
   providedIn: 'root',
 })
-export class RetultsService {
+export class ResultsService {
   loding: boolean = false;
   errMessage: string = '';
   results: Results = {

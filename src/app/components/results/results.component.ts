@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { RetultsService } from '../../services/retults.service';
+import { ResultsService } from '../../services/results.service';
 import { Results } from '../../results';
 
 @Component({
@@ -9,7 +9,7 @@ import { Results } from '../../results';
   styleUrls: ['./results.component.scss'],
 })
 export class ResultsComponent implements OnInit, OnDestroy {
-  constructor(public resultsService: RetultsService) {}
+  constructor(public resultsService: ResultsService) {}
 
   ngOnInit(): void {}
 

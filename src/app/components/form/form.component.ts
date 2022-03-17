@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { WeatherService } from '../../services/weather.service';
-import { RetultsService } from '../../services/retults.service';
+import { ResultsService } from '../../services/results.service';
 
 @Component({
   selector: 'app-form',
@@ -11,11 +11,10 @@ import { RetultsService } from '../../services/retults.service';
 })
 export class FormComponent implements OnInit {
   city: string = '';
-  errors: any = [];
 
   constructor(
     private weatherService: WeatherService,
-    private resultsService: RetultsService
+    private resultsService: ResultsService
   ) {}
 
   ngOnInit(): void {}
@@ -35,7 +34,6 @@ export class FormComponent implements OnInit {
       },
       (err: HttpErrorResponse) => {
         console.log(err);
-        this.errors = err.error.errors;
         this.resultsService.setLoading(false);
         this.resultsService.setError(err.error.error.message);
       }

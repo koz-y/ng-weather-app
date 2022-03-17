@@ -7,5 +7,5 @@
     value="city"
     required
   />
-  <button type="submit">Get Weather</button>
+  <button [disabled]="getCityForm.invalid" type="submit">Get Weather</button>
 </form>

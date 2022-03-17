@@ -1,8 +1,16 @@
-<p>results works!</p>
-<div *ngIf="resultsService.loding">Now Loading ...</div>
-<div>{{ resultsService.results.cityName }}</div>
-<div>{{ resultsService.results.country }}</div>
-<div>{{ resultsService.results.temperature }}</div>
-<div>{{ resultsService.results.conditionText }}</div>
-<div>{{ resultsService.results.icon }}</div>
-<div>{{ resultsService.errMessage }}</div>
+<div *ngIf="resultsService.results.cityName" class="results-city">
+  {{ resultsService.results.cityName }}
+</div>
+<div *ngIf="resultsService.results.country" class="results-country">
+  {{ resultsService.results.country }}
+</div>
+<div *ngIf="resultsService.results.temperature" class="results-temp">
+  {{ resultsService.results.temperature }}<span>℃</span>
+</div>
+<div *ngIf="resultsService.results.conditionText" class="results-condition">
+  <img src="{{ resultsService.results.icon }}" />
+  <span>{{ resultsService.results.conditionText }}</span>
+</div>
+<div *ngIf="resultsService.errMessage" class="results-error">
+  {{ resultsService.errMessage }}
+</div>
